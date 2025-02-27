@@ -2,48 +2,63 @@
 
 A simple Django-based inventory management system that allows you to track items and their suppliers.
 
-## Setup
+## Setup Instructions
 
-1. Create and activate a virtual environment:
+1. Clone the repository:
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+git clone https://github.com/Harismur98/KiraTech_Assignment.git
+cd KiraTech_Assignment
 ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment:
+```bash
+# On Windows
+python -m venv .venv
+.venv\Scripts\activate
+
+# On macOS/Linux
+python -m venv .venv
+source .venv/bin/activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Apply database migrations:
+4. Navigate to the project directory:
 ```bash
 cd inventory
+```
+
+5. Apply database migrations:
+```bash
 python manage.py migrate
 ```
 
-4. Create a superuser:
+6. Create a superuser (admin account):
 ```bash
 python manage.py createsuperuser
 ```
 
-5. Run the development server:
+7. Run the development server:
 ```bash
 python manage.py runserver
 ```
 
-## Usage
+## Accessing the Application
 
-- Access the admin interface at: http://localhost:8000/admin/
-- View inventory list at: http://localhost:8000/inventory/
-- API endpoints:
-  - List inventory: http://localhost:8000/api/inventory/
-  - Search by name: http://localhost:8000/api/inventory/?search=query
+- Admin Interface: http://localhost:8000/admin/
+  - Login with your superuser credentials
+  - Manage inventory items and suppliers
+- Inventory List: http://localhost:8000/inventory/
+- API Endpoints:
+  - List all items: http://localhost:8000/api/inventory/
+  - Search items: http://localhost:8000/api/inventory/?search=query
 
-## Testing
+## Running Tests
+
+To run the test suite:
 ```bash
 python manage.py test inventory
 ```
-The following endpoints should return 200 OK status:
-- /inventory/
-- /api/inventory/
-- /inventory/<id>/ `
