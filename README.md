@@ -18,7 +18,6 @@ pip install -r requirements.txt
 3. Apply database migrations:
 ```bash
 cd inventory
-python manage.py makemigrations
 python manage.py migrate
 ```
 
