@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">{{ item.name }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <!-- Placeholder image -->
+                        <img src="https://placehold.co/400" alt="Item placeholder" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Details</h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Description</dt>
+                            <dd class="col-sm-8">{{ item.description }}</dd>
+
+                            <dt class="col-sm-4">Stock</dt>
+                            <dd class="col-sm-8">{{ item.stock }}</dd>
+
+                            <dt class="col-sm-4">Availability</dt>
+                            <dd class="col-sm-8">
+                                {% if item.availability %}
+                                <span class="badge bg-success">Available</span>
+                                {% else %}
+                                <span class="badge bg-danger">Not Available</span>
+                                {% endif %}
+                            </dd>
+
+                            <dt class="col-sm-4">Supplier</dt>
+                            <dd class="col-sm-8">{{ item.supplier.name }}</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="mb-0">Notes</h5>
+                    </div>
+                    <div class="card-body">
+                        {{ item.note|linebreaks }}
+                    </div>
+                </div>
+
+                <a href="{% url 'inventory_list' %}" class="btn btn-primary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
